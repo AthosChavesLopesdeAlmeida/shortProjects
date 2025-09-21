@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  width: 100vw;
+  height: 100vh;
+}
+
+#carousel {
+  width: 2000px;
+  background-color: blue;
+  overflow: hidden;
+}
+
+img {
+  width: 400px;
+}
+
+#controls {
+  background-color: lightslategray;
+  opacity: 0.7;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5em;
+  width: 100px;
+}
+
+#controls > button {
+  background-color: lightslategray;
+  border: none;
+  font-size: 1.5em;
+}
