@@ -88,7 +88,7 @@ prevBtn.addEventListener('click', () => {
 
 
 
-while (currentIndex <= images.length) {
+/* while (currentIndex <= images.length) {
   
   nextBtn.addEventListener('click', () => {
     if (currentIndex <= images.length - 1) {     
@@ -140,4 +140,4 @@ while (currentIndex <= images.length) {
   })
 
 }
-
+*/
