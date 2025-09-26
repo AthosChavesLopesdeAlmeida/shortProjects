@@ -88,56 +88,56 @@ prevBtn.addEventListener('click', () => {
 
 
 
-// while (currentIndex <= images.length) {
+while (currentIndex <= images.length) {
   
-//   nextBtn.addEventListener('click', () => {
-//     if (currentIndex <= images.length - 1) {     
-//       images[currentIndex].classList.add('hidden');
-//       images[currentIndex].classList.remove('shown');
+  nextBtn.addEventListener('click', () => {
+    if (currentIndex <= images.length - 1) {     
+      images[currentIndex].classList.add('hidden');
+      images[currentIndex].classList.remove('shown');
       
-//       currentIndex++;
+      currentIndex++;
       
-//       images[currentIndex].classList.add('shown');
-//       images[currentIndex].classList.remove('hidden');
+      images[currentIndex].classList.add('shown');
+      images[currentIndex].classList.remove('hidden');
 
-//       indexText.innerHTML = `${currentIndex + 1}/3`
-//     } else if(currentIndex === images.length) {
-//       images[currentIndex].classList.add('hidden');
-//       images[currentIndex].classList.remove('shown');
+      indexText.innerHTML = `${currentIndex + 1}/3`
+    } else if(currentIndex === images.length) {
+      images[currentIndex].classList.add('hidden');
+      images[currentIndex].classList.remove('shown');
 
-//       currentIndex = 0;
+      currentIndex = 0;
 
-//       images[currentIndex].classList.add('shown');
-//       images[currentIndex].classList.remove('hidden');
+      images[currentIndex].classList.add('shown');
+      images[currentIndex].classList.remove('hidden');
 
-//       indexText.innerHTML = `1/3`
-//     } else {
-//       alert('erro');
-//     }
-//   })
+      indexText.innerHTML = `1/3`
+    } else {
+      alert('erro');
+    }
+  })
 
 
-//   prevBtn.addEventListener('click', () => {
-//     if(currentIndex === images.length) {
-//       images[currentIndex].classList.add('hidden');
-//       images[currentIndex].classList.remove('shown');
+  prevBtn.addEventListener('click', () => {
+    if(currentIndex === images.length) {
+      images[currentIndex].classList.add('hidden');
+      images[currentIndex].classList.remove('shown');
       
-//       currentIndex--;
+      currentIndex--;
       
-//       images[currentIndex].classList.add('shown');
-//       images[currentIndex].classList.remove('hidden');
-//     } else if (currentIndex === 0) {
-//       images[currentIndex].classList.add('hidden');
-//       images[currentIndex].classList.remove('shown');
+      images[currentIndex].classList.add('shown');
+      images[currentIndex].classList.remove('hidden');
+    } else if (currentIndex === 0) {
+      images[currentIndex].classList.add('hidden');
+      images[currentIndex].classList.remove('shown');
       
-//       currentIndex = images.length;
+      currentIndex = images.length;
       
-//       images[currentIndex].classList.add('shown');
-//       images[currentIndex].classList.remove('hidden');
-//     } else {
-//       alert('erro');
-//     }
-//   })
+      images[currentIndex].classList.add('shown');
+      images[currentIndex].classList.remove('hidden');
+    } else {
+      alert('erro');
+    }
+  })
 
-// }
+}
 
