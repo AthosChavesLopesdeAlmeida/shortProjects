@@ -35,9 +35,14 @@ form > div {
 }
 
 button {
-  background-color: rgb(22, 22, 133);
+  background-color: #161685;
   color: white;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
+}
+
+span {
+  margin-top: 10px;
+  color: red;
 }

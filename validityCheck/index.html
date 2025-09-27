@@ -11,21 +11,22 @@
     <form>
       <div>
         <label for="postalCode">CEP</label>
-        <input type="text" name="" id="postalCode" autocomplete="off">
+        <input type="text" name="postalCode" id="postalCode" autocomplete="off" pattern="\d{5}-\d{3}" required>
       </div>
       <div>
         <label for="email">Email</label>
-        <input type="text" name="" id="email" autocomplete="off">
+        <input type="email" name="email" id="email" autocomplete="off" required>
       </div>
       <div>
         <label for="password">Senha</label>
-        <input type="password" name="" id="password" autocomplete="off">
+        <input type="password" name="password" id="password" autocomplete="off" required>
       </div>
       <div>
         <label for="confirmation">Confirme sua senha</label>
-        <input type="password" name="" id="confirmation" autocomplete="off">
+        <input type="password" name="confirmation" id="confirmation" autocomplete="off" required>
       </div>
-      <button id="botao">Confirmar</button>
+      <button id="botao" type="submit">Confirmar</button>
+      <span id="errorMsg"></span>
     </form>
     <script src="index.js"></script>
   </body>
