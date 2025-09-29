@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --diaEnsolarado: rgb(195, 161, 25);
+  --noite: rgb(16, 16, 24);
+  --nublado: rgb(170, 170, 170);
+  --chuva: rgb(62, 62, 62);
+  --meioNublado: rgb(44, 62, 157);
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: black;
+  width: 100vw;
+  height: 100vh;
+}
+
+header {
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+}
+
+main {
+  margin-top: 40px;
+  display: grid;
+  align-items: center;
+  justify-content: space-evenly;
+  justify-items:center;
+  grid-template-columns: 1fr 1fr;
+}
+img {
+  border-radius: 350px;
+  width: 500px;
+  height: 500px;
+}
+
+#today-card {
+  width: 400px;
+  height: 200px;
+  border: 1px solid black;
+  border-radius: 30px;
+  background-color: white;
+  padding: 20px;
+}
