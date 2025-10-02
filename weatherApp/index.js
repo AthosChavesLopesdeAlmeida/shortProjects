@@ -1,5 +1,5 @@
 import { coletarDadosDaAPI } from "./getinfo"
 
-document.addEventListener('DOMContentLoaded', () => {
-  coletarDadosDaAPI()
+document.addEventListener('DOMContentLoaded', async () => {
+  await coletarDadosDaAPI()
 })

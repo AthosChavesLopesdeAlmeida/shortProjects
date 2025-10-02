@@ -1,8 +1,7 @@
 import './getinfo.js'
 import './style.css'
-import './imgs'
 
-const img = document.querySelector('#img');
+const img = document.getElementById('#image');
 const main = document.getElementsByTagName('main')[0]
 const cidade = document.getElementById('cidade');
 const temperatura = document.getElementById('temperatura');
@@ -14,31 +13,33 @@ function isNoite() {
   return hora >= 18 || hora < 6;  
 }
 
- export function changePic() {
+ export function changePic(condicao) {  
+  let imagem = 'imgs/partialycloudy.jpg';
+  let cor = 'rgb(44, 62, 157)';  
   if (condicao.includes('Rain')) {
-    img.src = 'imgs/rain.jpg'
-    main.style.backgroundColor = rgb(62, 62, 62);
+    imagem = 'imgs/rain.jpg';
+    cor = 'rgb(62, 62, 62)';
   } else if (condicao.includes('Clear')) {
-    img.src = 'imgs/sun.jpg'
-    main.style.backgroundColor = rgb(195, 161, 25);
+    imagem = 'imgs/sun.jpg';
+    cor = 'rgb(195, 161, 25)';
   } else if (condicao.includes('Cloudy')) {
-    img.src = 'imgs/cloudy.webp'
-    main.style.backgroundColor = rgb(170, 170, 170);
-  } else {
-    img.src = 'imgs/partialycloudy.jpg'
-    main.style.backgroundColor = rgb(44, 62, 157);
+    imagem = 'imgs/cloudy.webp';
+    cor = 'rgb(170, 170, 170)';
   }
 
   if (isNoite()) {
-    img.src = 'imgs/night.webp'
-    main.style.backgroundColor = rgb(16, 16, 24);
+    imagem = 'imgs/night.webp';  
+    cor = 'rgb(16, 16, 24)';
   }
+
+  img.src = imagem;
+  main.style.backgroundColor = cor;
 }
 
- export function changeTemp () {
-  temperatura.innerHTML += temp
+ export function changeTemp (temp) {
+  temperatura.innerHTML = temp.toFixed(1)
 }
 
-export function changeDesc () {
-  descricao.innerHTML +=  desc
+export function changeDesc (desc) {
+  descricao.innerHTML = `Today: ${desc}`
 }
