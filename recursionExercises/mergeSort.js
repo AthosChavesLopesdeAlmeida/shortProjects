@@ -29,11 +29,13 @@ function mergeSort(array) {
      }
     }
 
+    // 
     while (s < second_sort.length) {
       result.push(second_sort[s]);
       s++;
     }
 
+    //
     while (f < first_sort.length) {
       result.push(first_sort[f]);
       f++;
