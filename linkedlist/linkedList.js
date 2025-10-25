@@ -126,7 +126,7 @@ class linkedList {
     
   }
 
-  // Arrumar
+  // OK
   contains(data) {
     let current = this.head;
     while (current) {
@@ -179,12 +179,67 @@ class linkedList {
     return str;
   }
 
+  // OK (Revisar)
   insertAt(data, index) {
+    const newNode = new node(data);
 
+    if (index > this.length) {
+      return "Índice fora dos limites da lista";
+    } 
+    
+    else if (index === 0) {
+      newNode.next = this.head;
+      this.head = newNode;
+      this.length++;
+      return;
+    } 
+    
+    else {
+      let current = this.head;
+      let c = 0
+
+      while (c < index - 1) { 
+        current = current.next;
+        c++;
+      }
+
+      newNode.next = current.next;
+      current.next = newNode
+      this.length++;
+    }
   }
 
+  // OK (Revisar)
   removeAt(index) {
+   if (index >= this.length || index < 0) {
+      return "Índice fora dos limites da lista";
+   } 
+
+   // ============================
+   if (index === 0) {
+    if (this.head === null) return;
     
+    const removed = this.head;
+    this.head = this.head.next;
+    removed.next = null;
+    this.length--;
+   }
+
+    // ============================
+   let prev = null;
+   let current = this.head;
+   let c = 0;
+
+   while (c < index) {
+    prev = current;
+    current = current.next;
+    c++;
+   }
+
+    prev.next = current.next;
+    current.next = null;
+    this.length--;
+    return;
   }
 }
 
@@ -195,15 +250,12 @@ let lista = new linkedList();
 lista.append(10);
 lista.append(20);
 lista.append(30);
-lista.prepend(5);
 lista.append(40);
-lista.pop()
+lista.append(50);
+lista.append(60);
+lista.prepend(5);
+lista.insertAt(25, 2);
+lista.removeAt(3);
 
-console.log(lista.at(2));
-console.log(lista.first());
-console.log(lista.tail());
-console.log(lista.size());
-console.log(lista.contains(20));
-console.log(lista.find(40))
 console.log(lista.toString());
 
