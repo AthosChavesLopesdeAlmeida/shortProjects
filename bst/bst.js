@@ -145,5 +145,38 @@ dependendo se o valor é maior ou menor que root
     else succParent.right = succChild;
     return true;
   }
+
+  find(value) {
+    let node = this.root
+
+    if(!this.root) return false;
+    if(value === undefined || value === null) return false;
+
+    while (node) {
+      if (value === node.data) return true;
+      node = (value < node.data) ? node.left : node.right; // Checa se o valor é menor que node e atribui left ou right de acordo com o resultado.
+    }
+
+    return false;
+  }
+
+  // BUSCA EM PROFUNDIDADE (DFS)
+  levelOrderForEach(callback) {
+    let node = this.root;
+    let prev = null;
+    const seen = [];
+
+    if(!callback) throw new Error("No callback function was passed.");
+
+    // Se há um valor na direita, vá a esse valor e adicione-o a seen
+    // quando o valor há direita for null, retorne para o node anterior
+    // Se há um valor na esquerda vá até ele e repita o processo a té que não haja mais valores !== null
+  }
 }
 
+
+let bst = new Tree([1, 7, 3, 4, 10, 5]);
+console.log(bst.buildTree([1, 7, 3, 4, 10, 5]));
+bst.insert(2);
+console.log(bst);
+console.log(bst.find(2));
