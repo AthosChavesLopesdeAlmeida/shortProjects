@@ -160,23 +160,84 @@ dependendo se o valor é maior ou menor que root
     return false;
   }
 
-  // BUSCA EM PROFUNDIDADE (DFS)
-  levelOrderForEach(callback) {
-    let node = this.root;
-    let prev = null;
-    const seen = [];
+  levelOrderForEach() {
+    
+    // Implementação correta: travessia em largura (level-order, BFS) usando uma fila
+    // Retorna um array com os valores por nível. Opcionalmente, aceitar um callback
+    // seria útil; por enquanto retornamos o array para facilitar testes.
 
-    if(!callback) throw new Error("No callback function was passed.");
+    if (!this.root) return [];
 
-    // Se há um valor na direita, vá a esse valor e adicione-o a seen
-    // quando o valor há direita for null, retorne para o node anterior
-    // Se há um valor na esquerda vá até ele e repita o processo a té que não haja mais valores !== null
+    const queue = [this.root];
+    const result = [];
+
+    while (queue.length > 0) {
+      const node = queue.shift();
+      result.push(node.data);
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
+    }
+
+    return result;
+  }
+
+  inOrderForEach() {
+    if (!this.root) return [];
+
+    let inOrderArray = [];
+
+    function inor(node) {
+      if (!node) return;
+
+      inor(node.left);
+      inOrderArray.push(node.data);
+      inor(node.right);
+    }
+
+    inor(this.root)
+    return inOrderArray;
+  }
+
+  preOrderForEach() {
+    if (!this.root) return [];
+
+    let preOrderArray = [];
+
+    function pre(node) {
+      if (!node) return;
+
+      preOrderArray.push(node.data);
+      pre(node.left);
+      pre(node.right);
+    }
+
+    pre(this.root);
+    return preOrderArray;
+  }
+
+  postOrderForEach() {
+    if (!this.root) return [];
+
+    let postOrderArray = [];
+
+    function post(node) {
+      if (!node) return;
+
+      post(node.left);
+      post(node.right);
+      postOrderArray.push(node.data);
+    }
+
+    post(this.root);
+    return postOrderArray;
   }
 }
 
 
 let bst = new Tree([1, 7, 3, 4, 10, 5]);
-console.log(bst.buildTree([1, 7, 3, 4, 10, 5]));
+bst.buildTree([1, 7, 3, 4, 10, 5]);
+bst.insert(9);
 bst.insert(2);
-console.log(bst);
-console.log(bst.find(2));
+console.log(bst.postOrderForEach())
+console.log(bst.inOrderForEach())
+console.log(bst.preOrderForEach())
