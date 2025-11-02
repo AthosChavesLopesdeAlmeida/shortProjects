@@ -231,13 +231,88 @@ dependendo se o valor é maior ou menor que root
     post(this.root);
     return postOrderArray;
   }
+
+  height(value) {
+    let current = this.root;
+
+    // Encontrar o valor na árvore
+    while(current.data !== value) {
+      if(!this.root) return null;
+      if (current.left === null || current.right === null) return null;
+      if (value === current.data) continue;
+
+      (value > current.left) ? (current = current.right) : (current = current.left);
+    }
+
+    // Encontrar algum nó folha
+    let c = 0
+
+    while (current.left !== null && current.right !== null) {
+      if(!this.root) return null;
+      if (current.left === null || current.right === null) return null;
+
+      (value > current.left) ? (current = current.right) : (current = current.left);
+      c++
+    }
+    return c;
+  }
+
+  depth(value) {
+    let current  = this.root
+    let c = 0
+
+    while(current.data !== value) {
+      if(!this.root) return null;
+      if (current.left === null || current.right === null) return null;
+
+      (value > current.left) ? (current = current.right) : (current = current.left);
+      c++
+    }
+
+    return c
+  }
+
+  isBalanced() {
+    let left = [];
+    let right = [];
+    let current = this.root
+    const is = "Is balanced"
+    const isnt = "Isn't balanced"
+
+    // Esquerda 
+    function checkLeft(node) {
+      if (!this.root) return left;
+
+      node  = current.left;
+
+      left.push(node);
+      checkLeft(node.left);
+      checkLeft(node.right);
+    }
+
+    // Direita
+    function checkRight(node) {
+      if (!this.root) return right;
+
+      node  = current.right;
+
+      left.push(node);
+      checkRight(node.left);
+      checkRight(node.right);
+    }
+
+    if ((left.length > right.length) - 1 || (right.length > left.length) - 1) {
+      return isnt;
+    } else {
+      return is;
+    }
+  }
 }
 
 
-let bst = new Tree([1, 7, 3, 4, 10, 5]);
-bst.buildTree([1, 7, 3, 4, 10, 5]);
-bst.insert(9);
-bst.insert(2);
-console.log(bst.postOrderForEach())
-console.log(bst.inOrderForEach())
-console.log(bst.preOrderForEach())
+let bst = new Tree([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+bst.buildTree([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+console.log(bst.postOrderForEach());
+console.log(bst.inOrderForEach());
+console.log(bst.preOrderForEach());
+console.log(bst.isBalanced());
