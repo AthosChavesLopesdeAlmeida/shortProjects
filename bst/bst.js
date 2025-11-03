@@ -273,45 +273,24 @@ dependendo se o valor é maior ou menor que root
   }
 
   isBalanced() {
-    let left = [];
-    let right = [];
-    let current = this.root
-    const is = "Is balanced"
-    const isnt = "Isn't balanced"
-
-    // Esquerda 
-    function checkLeft(node) {
-      if (!this.root) return left;
-
-      node  = current.left;
-
-      left.push(node);
-      checkLeft(node.left);
-      checkLeft(node.right);
+    
+    function check(node) {
+      if (!node) return 0;
+      const leftHeight = check(node.left);
+      if (leftHeight === -1) return -1; // já detectou desequilíbrio abaixo
+      const rightHeight = check(node.right);
+      if (rightHeight === -1) return -1;
+      if (Math.abs(leftHeight - rightHeight) > 1) return -1; // Se a diferença entre as duas é maior que 1
+      return Math.max(leftHeight, rightHeight) + 1;
     }
 
-    // Direita
-    function checkRight(node) {
-      if (!this.root) return right;
-
-      node  = current.right;
-
-      left.push(node);
-      checkRight(node.left);
-      checkRight(node.right);
-    }
-
-    if ((left.length > right.length) - 1 || (right.length > left.length) - 1) {
-      return isnt;
-    } else {
-      return is;
-    }
+    return check(this.root) !== -1;
   }
 }
 
 
-let bst = new Tree([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-bst.buildTree([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+let bst = new Tree([1, 2, 3, 4, 5, 6, 7,]);
+bst.buildTree([1, 2, 3, 4, 5, 6, 7]);
 console.log(bst.postOrderForEach());
 console.log(bst.inOrderForEach());
 console.log(bst.preOrderForEach());
